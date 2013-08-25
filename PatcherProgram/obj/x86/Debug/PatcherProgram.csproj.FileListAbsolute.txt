@@ -1,0 +1,98 @@
+C:\Documents and Settings\Terrance\Desktop\PatcherProgram\PatcherProgram\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Terrance\Desktop\PatcherProgram\PatcherProgram\obj\x86\Debug\WindowsFormsApplication1.Form1.resources
+C:\Documents and Settings\Terrance\Desktop\PatcherProgram\PatcherProgram\obj\x86\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Documents and Settings\Terrance\Desktop\PatcherProgram\PatcherProgram\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Documents and Settings\Terrance\Desktop\PatcherProgram\PatcherProgram\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Documents and Settings\Terrance\Desktop\PatcherProgram\PatcherProgram\bin\Debug\PatcherProgram.exe
+C:\Documents and Settings\Terrance\Desktop\PatcherProgram\PatcherProgram\bin\Debug\PatcherProgram.pdb
+C:\Documents and Settings\Terrance\Desktop\PatcherProgram\PatcherProgram\obj\x86\Debug\PatcherProgram.exe
+C:\Documents and Settings\Terrance\Desktop\PatcherProgram\PatcherProgram\obj\x86\Debug\PatcherProgram.pdb
+F:\PatcherProgram\PatcherProgram\obj\x86\Debug\PatcherProgram.exe
+F:\PatcherProgram\PatcherProgram\obj\x86\Debug\PatcherProgram.pdb
+V:\tcodd\Programs\PatcherProgram\PatcherProgram\obj\x86\Debug\PatcherProgram.exe
+V:\tcodd\Programs\PatcherProgram\PatcherProgram\obj\x86\Debug\PatcherProgram.pdb
+V:\tcodd\Programs\PatcherProgram\PatcherProgram\bin\Debug\PatcherProgram.exe
+V:\tcodd\Programs\PatcherProgram\PatcherProgram\bin\Debug\PatcherProgram.pdb
+V:\tcodd\Programs\PatcherProgram\PatcherProgram\obj\x86\Debug\ResolveAssemblyReference.cache
+V:\tcodd\Programs\PatcherProgram\PatcherProgram\obj\x86\Debug\WindowsFormsApplication1.Form1.resources
+V:\tcodd\Programs\PatcherProgram\PatcherProgram\obj\x86\Debug\WindowsFormsApplication1.Properties.Resources.resources
+V:\tcodd\Programs\PatcherProgram\PatcherProgram\obj\x86\Debug\GenerateResource.read.1.tlog
+V:\tcodd\Programs\PatcherProgram\PatcherProgram\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Netbook\Desktop\PatcherProgram\PatcherProgram\obj\x86\Debug\PatcherProgram.exe
+C:\Users\Netbook\Desktop\PatcherProgram\PatcherProgram\obj\x86\Debug\PatcherProgram.pdb
+C:\Users\Netbook\Desktop\PatcherProgram\PatcherProgram\bin\Debug\PatcherProgram.exe
+C:\Users\Netbook\Desktop\PatcherProgram\PatcherProgram\bin\Debug\PatcherProgram.pdb
+C:\Users\Netbook\Desktop\PatcherProgram\PatcherProgram\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Netbook\Desktop\PatcherProgram\PatcherProgram\obj\x86\Debug\WindowsFormsApplication1.Form1.resources
+C:\Users\Netbook\Desktop\PatcherProgram\PatcherProgram\obj\x86\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\Netbook\Desktop\PatcherProgram\PatcherProgram\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Netbook\Desktop\PatcherProgram\PatcherProgram\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Netbook\Desktop\PatcherProgram\PatcherProgram\bin\Debug\PatcherProgram.exe.manifest
+C:\Users\Netbook\Desktop\PatcherProgram\PatcherProgram\bin\Debug\PatcherProgram.application
+C:\Users\Netbook\Desktop\PatcherProgram\PatcherProgram\obj\x86\Debug\PatcherProgram.exe.manifest
+C:\Users\Netbook\Desktop\PatcherProgram\PatcherProgram\obj\x86\Debug\PatcherProgram.application
+C:\Documents and Settings\Terrance\Desktop\Copy of PatcherProgram\PatcherProgram\obj\x86\Debug\PatcherProgram.exe
+C:\Documents and Settings\Terrance\Desktop\Copy of PatcherProgram\PatcherProgram\obj\x86\Debug\PatcherProgram.pdb
+C:\Documents and Settings\Terrance\Desktop\Copy of PatcherProgram\PatcherProgram\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Terrance\Desktop\Copy of PatcherProgram\PatcherProgram\obj\x86\Debug\WindowsFormsApplication1.Form1.resources
+C:\Documents and Settings\Terrance\Desktop\Copy of PatcherProgram\PatcherProgram\obj\x86\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Documents and Settings\Terrance\Desktop\Copy of PatcherProgram\PatcherProgram\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Documents and Settings\Terrance\Desktop\Copy of PatcherProgram\PatcherProgram\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Documents and Settings\Terrance\Desktop\Copy of PatcherProgram\PatcherProgram\bin\Debug\PatcherProgram.exe.manifest
+C:\Documents and Settings\Terrance\Desktop\Copy of PatcherProgram\PatcherProgram\bin\Debug\PatcherProgram.application
+C:\Documents and Settings\Terrance\Desktop\Copy of PatcherProgram\PatcherProgram\bin\Debug\PatcherProgram.exe
+C:\Documents and Settings\Terrance\Desktop\Copy of PatcherProgram\PatcherProgram\bin\Debug\PatcherProgram.pdb
+C:\Documents and Settings\Terrance\Desktop\Copy of PatcherProgram\PatcherProgram\obj\x86\Debug\PatcherProgram.exe.manifest
+C:\Documents and Settings\Terrance\Desktop\Copy of PatcherProgram\PatcherProgram\obj\x86\Debug\PatcherProgram.application
+C:\Documents and Settings\Terrance\Desktop\PatcherProgram V 2\PatcherProgram\obj\x86\Debug\PatcherProgram.exe
+C:\Documents and Settings\Terrance\Desktop\PatcherProgram V 2\PatcherProgram\obj\x86\Debug\PatcherProgram.pdb
+C:\Documents and Settings\Terrance\Desktop\PatcherProgram V 2\PatcherProgram\bin\Debug\PatcherProgram.exe.manifest
+C:\Documents and Settings\Terrance\Desktop\PatcherProgram V 2\PatcherProgram\bin\Debug\PatcherProgram.application
+C:\Documents and Settings\Terrance\Desktop\PatcherProgram V 2\PatcherProgram\bin\Debug\PatcherProgram.exe
+C:\Documents and Settings\Terrance\Desktop\PatcherProgram V 2\PatcherProgram\bin\Debug\PatcherProgram.pdb
+C:\Documents and Settings\Terrance\Desktop\PatcherProgram V 2\PatcherProgram\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Terrance\Desktop\PatcherProgram V 2\PatcherProgram\obj\x86\Debug\WindowsFormsApplication1.Form1.resources
+C:\Documents and Settings\Terrance\Desktop\PatcherProgram V 2\PatcherProgram\obj\x86\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Documents and Settings\Terrance\Desktop\PatcherProgram V 2\PatcherProgram\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Documents and Settings\Terrance\Desktop\PatcherProgram V 2\PatcherProgram\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Documents and Settings\Terrance\Desktop\PatcherProgram V 2\PatcherProgram\obj\x86\Debug\PatcherProgram.exe.manifest
+C:\Documents and Settings\Terrance\Desktop\PatcherProgram V 2\PatcherProgram\obj\x86\Debug\PatcherProgram.application
+C:\Documents and Settings\Terrance\Desktop\PatcherProgram Version 3\PatcherProgram\obj\x86\Debug\PatcherProgram.exe
+C:\Documents and Settings\Terrance\Desktop\PatcherProgram Version 3\PatcherProgram\obj\x86\Debug\PatcherProgram.pdb
+C:\Documents and Settings\Terrance\Desktop\PatcherProgram Version 3\PatcherProgram\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Terrance\Desktop\PatcherProgram Version 3\PatcherProgram\obj\x86\Debug\WindowsFormsApplication1.Form1.resources
+C:\Documents and Settings\Terrance\Desktop\PatcherProgram Version 3\PatcherProgram\obj\x86\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Documents and Settings\Terrance\Desktop\PatcherProgram Version 3\PatcherProgram\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Documents and Settings\Terrance\Desktop\PatcherProgram Version 3\PatcherProgram\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Documents and Settings\Terrance\Desktop\PatcherProgram Version 3\PatcherProgram\bin\Debug\PatcherProgram.exe.manifest
+C:\Documents and Settings\Terrance\Desktop\PatcherProgram Version 3\PatcherProgram\bin\Debug\PatcherProgram.application
+C:\Documents and Settings\Terrance\Desktop\PatcherProgram Version 3\PatcherProgram\bin\Debug\PatcherProgram.exe
+C:\Documents and Settings\Terrance\Desktop\PatcherProgram Version 3\PatcherProgram\bin\Debug\PatcherProgram.pdb
+C:\Documents and Settings\Terrance\Desktop\PatcherProgram Version 3\PatcherProgram\obj\x86\Debug\PatcherProgram.exe.manifest
+C:\Documents and Settings\Terrance\Desktop\PatcherProgram Version 3\PatcherProgram\obj\x86\Debug\PatcherProgram.application
+C:\Users\Netbook\Desktop\Patcher Stuff\PatcherProgram Version 3\PatcherProgram\obj\x86\Debug\PatcherProgram.exe
+C:\Users\Netbook\Desktop\Patcher Stuff\PatcherProgram Version 3\PatcherProgram\obj\x86\Debug\PatcherProgram.pdb
+C:\Users\Netbook\Desktop\Patcher Stuff\PatcherProgram Version 3\PatcherProgram\bin\Debug\PatcherProgram.exe.manifest
+C:\Users\Netbook\Desktop\Patcher Stuff\PatcherProgram Version 3\PatcherProgram\bin\Debug\PatcherProgram.application
+C:\Users\Netbook\Desktop\Patcher Stuff\PatcherProgram Version 3\PatcherProgram\bin\Debug\PatcherProgram.exe
+C:\Users\Netbook\Desktop\Patcher Stuff\PatcherProgram Version 3\PatcherProgram\bin\Debug\PatcherProgram.pdb
+C:\Users\Netbook\Desktop\Patcher Stuff\PatcherProgram Version 3\PatcherProgram\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Netbook\Desktop\Patcher Stuff\PatcherProgram Version 3\PatcherProgram\obj\x86\Debug\WindowsFormsApplication1.Form1.resources
+C:\Users\Netbook\Desktop\Patcher Stuff\PatcherProgram Version 3\PatcherProgram\obj\x86\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\Netbook\Desktop\Patcher Stuff\PatcherProgram Version 3\PatcherProgram\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Netbook\Desktop\Patcher Stuff\PatcherProgram Version 3\PatcherProgram\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Netbook\Desktop\Patcher Stuff\PatcherProgram Version 3\PatcherProgram\obj\x86\Debug\PatcherProgram.exe.manifest
+C:\Users\Netbook\Desktop\Patcher Stuff\PatcherProgram Version 3\PatcherProgram\obj\x86\Debug\PatcherProgram.application
+V:\tcodd\Programs\Patcher Stuff\PatcherProgram Version 3\PatcherProgram\obj\x86\Debug\ResolveAssemblyReference.cache
+V:\tcodd\Programs\Patcher Stuff\PatcherProgram Version 3\PatcherProgram\obj\x86\Debug\WindowsFormsApplication1.Form1.resources
+V:\tcodd\Programs\Patcher Stuff\PatcherProgram Version 3\PatcherProgram\obj\x86\Debug\WindowsFormsApplication1.Properties.Resources.resources
+V:\tcodd\Programs\Patcher Stuff\PatcherProgram Version 3\PatcherProgram\obj\x86\Debug\GenerateResource.read.1.tlog
+V:\tcodd\Programs\Patcher Stuff\PatcherProgram Version 3\PatcherProgram\obj\x86\Debug\GenerateResource.write.1.tlog
+V:\tcodd\Programs\Patcher Stuff\PatcherProgram Version 3\PatcherProgram\bin\Debug\HRPatcher.exe.manifest
+V:\tcodd\Programs\Patcher Stuff\PatcherProgram Version 3\PatcherProgram\bin\Debug\HRPatcher.application
+V:\tcodd\Programs\Patcher Stuff\PatcherProgram Version 3\PatcherProgram\bin\Debug\HRPatcher.exe
+V:\tcodd\Programs\Patcher Stuff\PatcherProgram Version 3\PatcherProgram\bin\Debug\HRPatcher.pdb
+V:\tcodd\Programs\Patcher Stuff\PatcherProgram Version 3\PatcherProgram\obj\x86\Debug\HRPatcher.exe.manifest
+V:\tcodd\Programs\Patcher Stuff\PatcherProgram Version 3\PatcherProgram\obj\x86\Debug\HRPatcher.application
+V:\tcodd\Programs\Patcher Stuff\PatcherProgram Version 3\PatcherProgram\obj\x86\Debug\HRPatcher.exe
+V:\tcodd\Programs\Patcher Stuff\PatcherProgram Version 3\PatcherProgram\obj\x86\Debug\HRPatcher.pdb
