@@ -62,3 +62,15 @@ X:\tcodd\Programs\PatcherProgram OO Version\PatcherProgram\obj\x86\Release\Windo
 X:\tcodd\Programs\PatcherProgram OO Version\PatcherProgram\obj\x86\Release\PatcherProgram.csproj.GenerateResource.Cache
 X:\tcodd\Programs\PatcherProgram OO Version\PatcherProgram\obj\x86\Release\HRPatcher.exe.manifest
 X:\tcodd\Programs\PatcherProgram OO Version\PatcherProgram\obj\x86\Release\HRPatcher.application
+C:\Users\Terrance\Documents\WorkStuff\PatcherProgram OO Version\PatcherProgram\obj\x86\Release\HRPatcher.exe
+C:\Users\Terrance\Documents\WorkStuff\PatcherProgram OO Version\PatcherProgram\obj\x86\Release\HRPatcher.pdb
+C:\Users\Terrance\Documents\WorkStuff\PatcherProgram OO Version\PatcherProgram\bin\Release\HRPatcher.exe.manifest
+C:\Users\Terrance\Documents\WorkStuff\PatcherProgram OO Version\PatcherProgram\bin\Release\HRPatcher.application
+C:\Users\Terrance\Documents\WorkStuff\PatcherProgram OO Version\PatcherProgram\bin\Release\HRPatcher.exe
+C:\Users\Terrance\Documents\WorkStuff\PatcherProgram OO Version\PatcherProgram\bin\Release\HRPatcher.pdb
+C:\Users\Terrance\Documents\WorkStuff\PatcherProgram OO Version\PatcherProgram\obj\x86\Release\PatcherProgram.csprojResolveAssemblyReference.cache
+C:\Users\Terrance\Documents\WorkStuff\PatcherProgram OO Version\PatcherProgram\obj\x86\Release\WindowsFormsApplication1.Form1.resources
+C:\Users\Terrance\Documents\WorkStuff\PatcherProgram OO Version\PatcherProgram\obj\x86\Release\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\Terrance\Documents\WorkStuff\PatcherProgram OO Version\PatcherProgram\obj\x86\Release\PatcherProgram.csproj.GenerateResource.Cache
+C:\Users\Terrance\Documents\WorkStuff\PatcherProgram OO Version\PatcherProgram\obj\x86\Release\HRPatcher.exe.manifest
+C:\Users\Terrance\Documents\WorkStuff\PatcherProgram OO Version\PatcherProgram\obj\x86\Release\HRPatcher.application
