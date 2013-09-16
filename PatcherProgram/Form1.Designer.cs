@@ -56,6 +56,7 @@
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.TemperatureUpDown = new System.Windows.Forms.NumericUpDown();
             this.PressureUpDown = new System.Windows.Forms.NumericUpDown();
+            this.XYOnly = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.numberOfColumns)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.valueToAddUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ramanShiftUpDown)).BeginInit();
@@ -253,7 +254,7 @@
             // 
             this.patchButton.AutoSize = true;
             this.patchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.patchButton.Location = new System.Drawing.Point(12, 384);
+            this.patchButton.Location = new System.Drawing.Point(11, 379);
             this.patchButton.Name = "patchButton";
             this.patchButton.Size = new System.Drawing.Size(251, 40);
             this.patchButton.TabIndex = 8;
@@ -315,7 +316,7 @@
             this.lineShape3,
             this.lineShape2,
             this.lineShape1});
-            this.shapeContainer1.Size = new System.Drawing.Size(275, 436);
+            this.shapeContainer1.Size = new System.Drawing.Size(275, 431);
             this.shapeContainer1.TabIndex = 27;
             this.shapeContainer1.TabStop = false;
             // 
@@ -390,11 +391,22 @@
             0,
             65536});
             // 
+            // XYOnly
+            // 
+            this.XYOnly.AutoSize = true;
+            this.XYOnly.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.XYOnly.Location = new System.Drawing.Point(173, 320);
+            this.XYOnly.Name = "XYOnly";
+            this.XYOnly.Size = new System.Drawing.Size(99, 24);
+            this.XYOnly.TabIndex = 30;
+            this.XYOnly.Text = "X-Y Only?";
+            this.XYOnly.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(275, 436);
+            this.ClientSize = new System.Drawing.Size(275, 431);
             this.Controls.Add(this.PressureUpDown);
             this.Controls.Add(this.TemperatureUpDown);
             this.Controls.Add(this.PressureLabel);
@@ -415,6 +427,7 @@
             this.Controls.Add(this.patchButton);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.buttonCRDS);
+            this.Controls.Add(this.XYOnly);
             this.Controls.Add(this.shapeContainer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
@@ -459,6 +472,7 @@
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
         private System.Windows.Forms.NumericUpDown TemperatureUpDown;
         private System.Windows.Forms.NumericUpDown PressureUpDown;
+        private System.Windows.Forms.CheckBox XYOnly;
     }
 }
 

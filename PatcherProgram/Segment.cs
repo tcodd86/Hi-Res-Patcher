@@ -11,7 +11,6 @@ namespace WindowsFormsApplication1
         public static int nprev = 0;
         public static int nnprevW = 5;
         public static int wLF = 8;
-        //static int nw = 1;
         public static decimal pfreq = 0M;
         public static int seg = -1;
 

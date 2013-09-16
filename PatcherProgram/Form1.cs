@@ -214,10 +214,18 @@ namespace WindowsFormsApplication1
                     }
                 }
                 StringBuilder line = new StringBuilder();
-                for(int colIndex = 0; colIndex < 1 + numberOfColumnsCRDS + 1; colIndex++)
+                if (XYOnly.Checked)
                 {
-                    line.Append(Convert.ToString(allData[rowIndex][colIndex])).Append("\t");
-                }//inner for
+                    line.Append(Convert.ToString(allData[rowIndex][0])).Append("\t");
+                    line.Append(Convert.ToString(allData[rowIndex][numberOfColumnsCRDS + 1]));
+                }
+                else
+                {
+                    for (int colIndex = 0; colIndex < 1 + numberOfColumnsCRDS + 1; colIndex++)
+                    {
+                        line.Append(Convert.ToString(allData[rowIndex][colIndex])).Append("\t");
+                    }//inner for
+                }
                 linesToWrite.Add(line.ToString());
             }//end line writer for
 
@@ -300,20 +308,26 @@ namespace WindowsFormsApplication1
             }
         }//end method bublleSort
 
+        /// <summary>
+        /// Calculates the H2 raman shift based on T (K) and P (atm)
+        /// </summary>
+        /// <returns>
+        /// The H2 shift in cm^(-1) as a decimal rounded to the hundred thousandth cm^(-1).
+        /// </returns>
         private decimal RamanShift()
         {
-            const double R = 0.082054;
+            double R = 0.082054;
             double T;
             double P;
             double beta;
             double gamma;
             double delta;
-            const double A0 = 0.12404;
-            const double a = 0.05618;
-            const double B0 = 0.02022;
-            const double b = -0.00722;
-            const double c = 20000;
-            const double VmSTP = 22.427594;
+            double A0 = 0.12404;
+            double a = 0.05618;
+            double B0 = 0.02022;
+            double b = -0.00722;
+            double c = 20000;
+            double VmSTP = 22.427594;
             double rho;
             double Vm;
             double ramanShift;
