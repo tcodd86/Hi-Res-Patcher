@@ -37,8 +37,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.numberOfColumns = new System.Windows.Forms.NumericUpDown();
-            this.CRDSopenFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.WLMopenFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.savePatched = new System.Windows.Forms.SaveFileDialog();
             this.valueToAddUpDown = new System.Windows.Forms.NumericUpDown();
             this.ramanShiftUpDown = new System.Windows.Forms.NumericUpDown();
@@ -159,14 +157,6 @@
             0,
             0});
             this.numberOfColumns.ValueChanged += new System.EventHandler(this.numberOfColumns_ValueChanged);
-            // 
-            // CRDSopenFileDialog
-            // 
-            this.CRDSopenFileDialog.FileName = "openFileDialog1";
-            // 
-            // WLMopenFileDialog
-            // 
-            this.WLMopenFileDialog.FileName = "openFileDialog2";
             // 
             // valueToAddUpDown
             // 
@@ -453,8 +443,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericUpDown numberOfColumns;
-        private System.Windows.Forms.OpenFileDialog CRDSopenFileDialog;
-        private System.Windows.Forms.OpenFileDialog WLMopenFileDialog;
         private System.Windows.Forms.SaveFileDialog savePatched;
         private System.Windows.Forms.NumericUpDown valueToAddUpDown;
         private System.Windows.Forms.NumericUpDown ramanShiftUpDown;

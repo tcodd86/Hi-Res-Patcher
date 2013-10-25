@@ -62,70 +62,66 @@ namespace WindowsFormsApplication1
 
         private void buttonCRDS_Click(object sender, EventArgs e)
         {
-            CRDSopenFileDialog.Title = "Select a CRDS file";
-            if (String.IsNullOrEmpty(filePath))
-            {
-                CRDSopenFileDialog.InitialDirectory = "V:\\tcodd\\HRCRDS Data\\NO3";
-            }//end if
-            else 
-            {
-                CRDSopenFileDialog.InitialDirectory = filePath;
-            }//end else
-            CRDSopenFileDialog.FileName = "";
-            CRDSopenFileDialog.Filter = "DAT|*.dat|All Files|*.*";
-
-            CRDSopenFileDialog.ShowDialog();
-
-            filePath = CRDSopenFileDialog.FileName;
-
-            CRDSFileArray = Empty;
-
-            using (StreamReader CRDSfile = new StreamReader(filePath))
-            {
-                //this copies the CRDS file into a string array    
-                string lineC;
-                while ((lineC = CRDSfile.ReadLine()) != null)//says read until no more lines are left
-                {
-                    char[] delimiters = new char[] { '\t', '\r' };//declares tabs and carriage returns as delimiters
-                    CRDSNewLine = lineC.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);//creates array, clearing empty values
-                    CRDSFileArray = CRDSFileArray.Concat(CRDSNewLine).ToArray();//need to concatenate the previous CRDSFileArray with CRDSNewLine
-                }//end while
-            }//end StreamReader
+            CRDSFileArray = openFile(false);
         }//end button click
 
         private void button2_Click(object sender, EventArgs e)
         {
-            WLMopenFileDialog.Title = "Select a WLM file";
+            WLMFileArray = openFile(true);
+        }//end WLM open button
+
+        /// <summary>
+        /// Creates open file dialog and reads a .txt or .dat file into memory.
+        /// </summary>
+        /// <param name="WLM">
+        /// Boolean value to indicate if this is to read in a WLM file or not. 
+        /// </param>
+        /// <returns>
+        /// Returns a string[] of the tab and return delimited values in the text file.
+        /// </returns>
+        private string[] openFile(bool WLM)
+        {
+            var opener = new OpenFileDialog();
             if (String.IsNullOrEmpty(filePath))
             {
-                WLMopenFileDialog.InitialDirectory = "V:\\tcodd\\HRCRDS Data\\NO3";
+                opener.InitialDirectory = "X:\\tcodd\\HRCRDS Data\\NO3";
             }//end if
             else
             {
-                WLMopenFileDialog.InitialDirectory = filePath;
-            }//end else
-            WLMopenFileDialog.FileName = "";
-            WLMopenFileDialog.Filter = "Text|*.txt|All Files|*.*";
+                opener.InitialDirectory = filePath;
+            }
+            if (WLM)
+            {
+                opener.Filter = "Text|*.txt|All Files|*.*";
+                opener.Title = "Select a WLM File";
+            }
+            else
+            {
+                opener.Filter = "DAT|*.dat|All Files|*.*";
+                opener.Title = "Select a CRDS File";
+            }
 
-            WLMopenFileDialog.ShowDialog();
+            opener.ShowDialog();
 
-            filePath = WLMopenFileDialog.FileName;
+            if (String.IsNullOrEmpty(opener.FileName))
+            {
+                return Empty;
+            }
 
-            //Be sure that the WLMFileArray is empty to start
-            WLMFileArray = Empty;
+            filePath = opener.FileName;
 
-            using (StreamReader WLMfile = new StreamReader(filePath))
+            using (StreamReader openFile = new StreamReader(filePath))
             {
                 //this copies the WLM file into a string array
-                string lineW;
-                while ((lineW = WLMfile.ReadLine()) != null)//says read until no more lines
+                string[] file = new string[] {};
+                string line;
+                while ((line = openFile.ReadLine()) != null)//says read until no more lines
                 {
-                    char[] delimitersW = new char[] { '\t', '\r' };
-                    WLMNewLine = lineW.Split(delimitersW, StringSplitOptions.RemoveEmptyEntries);
-                    WLMFileArray = WLMFileArray.Concat(WLMNewLine).ToArray();
+                    file = file.Concat(line.Split(new char[] { '\t', '\r' }, StringSplitOptions.RemoveEmptyEntries)).ToArray();
                 }//end while
+                return file;
             }//end StreamReader
-        }//end WLM open button
+        }
 
         private void patchButton_Click(object sender, EventArgs e)
         {
