@@ -105,14 +105,23 @@ namespace WindowsFormsApplication1
 
             using (StreamReader openFile = new StreamReader(filePath))
             {
-                //this copies the WLM file into a string array
-                string[] file = new string[] {};
+                //this copies the file into a string array
+                string[] fileA = new string[] {};
+                string[] newLine;
+                List<string> file = new List<string>();
                 string line;
+                char[] delimiters = new char[] { '\t', '\r', ' ' };
                 while ((line = openFile.ReadLine()) != null)//says read until no more lines
                 {
-                    file = file.Concat(line.Split(new char[] { '\t', '\r' }, StringSplitOptions.RemoveEmptyEntries)).ToArray();
+                    newLine = line.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
+                    for (int i = 0; i < newLine.Length; i++)
+                    {
+                        file.Add(newLine[i]);
+                    }
+                    //file = file.Concat(line.Split(new char[] { '\t', '\r' }, StringSplitOptions.RemoveEmptyEntries)).ToArray();
                 }//end while
-                return file;
+                fileA = file.ToArray();
+                return fileA;
             }//end StreamReader
         }
 
