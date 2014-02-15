@@ -19,6 +19,8 @@ namespace WindowsFormsApplication1
         string[] WLMSeg;
 
         //the final patched segment
+        //public decimal[,] PatchSeg { get; private set; }
+
         private decimal[,] PatchSeg;
         public decimal[,] patchSeg
         {

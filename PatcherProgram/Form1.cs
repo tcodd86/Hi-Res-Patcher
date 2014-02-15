@@ -20,20 +20,13 @@ namespace WindowsFormsApplication1
         //declare variables
         public string[] CRDSFileArray = {};
         public string[] WLMFileArray = {};
-        public string[] CRDSNewLine;
-        public string[] WLMNewLine;
         public string[] Empty = {};
         public string[,] Empty2 = {};
-        public string[] CRDSSeg;
-        public string[] WLMSeg;
-        //public string[,] PatchSeg;
-        //public decimal[,] PatchSeg;
         public string filePath;
         public decimal valueToAdd = 0M;
         public decimal ramanShift = 4155.25000M;
         public decimal pfreq = 0M;
         public int numberOfColumnsCRDS = 6;
-        //public int f = 0;
         public int numberOfShots = 4;
         public int onCol;
         public int offCol;
@@ -62,217 +55,221 @@ namespace WindowsFormsApplication1
 
         private void buttonCRDS_Click(object sender, EventArgs e)
         {
-            CRDSopenFileDialog.Title = "Select a CRDS file";
-            if (String.IsNullOrEmpty(filePath))
-            {
-                CRDSopenFileDialog.InitialDirectory = "V:\\tcodd\\HRCRDS Data\\NO3";
-            }//end if
-            else 
-            {
-                CRDSopenFileDialog.InitialDirectory = filePath;
-            }//end else
-            CRDSopenFileDialog.FileName = "";
-            CRDSopenFileDialog.Filter = "DAT|*.dat|All Files|*.*";
-
-            CRDSopenFileDialog.ShowDialog();
-
-            filePath = CRDSopenFileDialog.FileName;
-
-            CRDSFileArray = Empty;
-
-            using (StreamReader CRDSfile = new StreamReader(filePath))
-            {
-                //this copies the CRDS file into a string array    
-                string lineC;
-                while ((lineC = CRDSfile.ReadLine()) != null)//says read until no more lines are left
-                {
-                    char[] delimiters = new char[] { '\t', '\r' };//declares tabs and carriage returns as delimiters
-                    CRDSNewLine = lineC.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);//creates array, clearing empty values
-                    CRDSFileArray = CRDSFileArray.Concat(CRDSNewLine).ToArray();//need to concatenate the previous CRDSFileArray with CRDSNewLine
-                }//end while
-            }//end StreamReader
+            CRDSFileArray = openFile(false);
         }//end button click
 
         private void button2_Click(object sender, EventArgs e)
         {
-            WLMopenFileDialog.Title = "Select a WLM file";
+            WLMFileArray = openFile(true);
+        }//end WLM open button
+
+        /// <summary>
+        /// Creates open file dialog and reads a .txt or .dat file into memory.
+        /// </summary>
+        /// <param name="WLM">
+        /// Boolean value to indicate if this is to read in a WLM file or not. 
+        /// </param>
+        /// <returns>
+        /// Returns a string[] of the tab and return delimited values in the text file.
+        /// </returns>
+        private string[] openFile(bool WLM)
+        {
+            var opener = new OpenFileDialog();
             if (String.IsNullOrEmpty(filePath))
             {
-                WLMopenFileDialog.InitialDirectory = "V:\\tcodd\\HRCRDS Data\\NO3";
+                opener.InitialDirectory = "X:\\tcodd\\HRCRDS Data\\NO3";
             }//end if
             else
             {
-                WLMopenFileDialog.InitialDirectory = filePath;
-            }//end else
-            WLMopenFileDialog.FileName = "";
-            WLMopenFileDialog.Filter = "Text|*.txt|All Files|*.*";
-
-            WLMopenFileDialog.ShowDialog();
-
-            filePath = WLMopenFileDialog.FileName;
-
-            //Be sure that the WLMFileArray is empty to start
-            WLMFileArray = Empty;
-
-            using (StreamReader WLMfile = new StreamReader(filePath))
+                opener.InitialDirectory = filePath;
+            }
+            if (WLM)
             {
-                //this copies the WLM file into a string array
-                string lineW;
-                while ((lineW = WLMfile.ReadLine()) != null)//says read until no more lines
+                opener.Filter = "Text|*.txt|All Files|*.*";
+                opener.Title = "Select a WLM File";
+            }
+            else
+            {
+                opener.Filter = "DAT|*.dat|All Files|*.*";
+                opener.Title = "Select a CRDS File";
+            }
+
+            opener.ShowDialog();
+
+            if (String.IsNullOrEmpty(opener.FileName))
+            {
+                return Empty;
+            }
+
+            filePath = opener.FileName;
+
+            using (StreamReader openFile = new StreamReader(filePath))
+            {
+                //this copies the file into a string array
+                string[] fileA = new string[] {};
+                string[] newLine;
+                List<string> file = new List<string>();
+                string line;
+                char[] delimiters = new char[] { '\t', '\r', ' ' };
+                while ((line = openFile.ReadLine()) != null)//says read until no more lines
                 {
-                    char[] delimitersW = new char[] { '\t', '\r' };
-                    WLMNewLine = lineW.Split(delimitersW, StringSplitOptions.RemoveEmptyEntries);
-                    WLMFileArray = WLMFileArray.Concat(WLMNewLine).ToArray();
+                    newLine = line.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
+                    for (int i = 0; i < newLine.Length; i++)
+                    {
+                        file.Add(newLine[i]);
+                    }
+                    //file = file.Concat(line.Split(new char[] { '\t', '\r' }, StringSplitOptions.RemoveEmptyEntries)).ToArray();
                 }//end while
+                fileA = file.ToArray();
+                return fileA;
             }//end StreamReader
-        }//end WLM open button
+        }
 
         private void patchButton_Click(object sender, EventArgs e)
         {
             if (WLMFileArray.Length == 0 || CRDSFileArray.Length == 0)
             {
                 MessageBox.Show("Please make sure you have loaded both a CRDS and WLM file.", "Error!");
+                return;
             }
+
+            //this replaces the last timing point with a 500 so the last segment is read
+            int endOfFileMarker = numberOfShots * 400;
+            string endOfFileMarkerS = Convert.ToString(endOfFileMarker);
+            WLMFileArray[WLMFileArray.Length - 2] = endOfFileMarkerS;
+
+            decimal calFreqAdj;
+
+            //this adds the Value to Add and subtracts the Raman Shift
+            //this is for user input RamanShift values
+            if (!CalcRamanShift.Checked)
+            {
+                for (int var = 1; var < WLMFileArray.Length; var += 5)
+                {
+                    calFreqAdj = Convert.ToDecimal(WLMFileArray[var]) + valueToAdd - ramanShift;
+                    WLMFileArray[var] = Convert.ToString(calFreqAdj);
+                }//end for loop for adding and subtracting values
+            }
+            //this is for User input T and P values to calculate the RamanShift
             else
             {
-                //this replaces the last timing point with a 500 so the last segment is read
-                int endOfFileMarker = numberOfShots * 400;
-                string endOfFileMarkerS = Convert.ToString(endOfFileMarker);
-                WLMFileArray[WLMFileArray.Length - 2] = endOfFileMarkerS;
-
-                decimal calFreqAdj;
-
-                //this adds the Value to Add and subtracts the Raman Shift
-                //this is for user input RamanShift values
-                if (!CalcRamanShift.Checked)
+                decimal RS = RamanShift();
+                for (int var = 1; var < WLMFileArray.Length; var += 5)
                 {
-                    for (int var = 1; var < WLMFileArray.Length; var += 5)
+                    calFreqAdj = Convert.ToDecimal(WLMFileArray[var]) + valueToAdd - RS;
+                    WLMFileArray[var] = Convert.ToString(calFreqAdj);
+                }//end for loop for adding and subtracting values
+            }
+
+            //creates a list of segments and then initializes them all
+            var SegList = new List<Segment>();
+            bool temp = true;
+            int whichSeg = 0;
+            while (temp)
+            {
+                SegList.Add(new Segment(valueToAdd, ramanShift, numberOfShots, checkBox1.Checked, cutWLMpoints.Checked, (int)numberOfColumns.Value));
+                temp = SegList.Last().patchSegs(CRDSFileArray, WLMFileArray, whichSeg);
+                whichSeg++;
+            }
+            bubbleSort(ref SegList);
+
+            var allData = new List<Decimal[]>();
+
+            //conditional statement to patch segments or not
+            if (checkBox1.Checked)
+            {
+                for (int i = 0; i < SegList.Count; i++)
+                {
+                    for (int j = 0; j < SegList[i].patchSeg.GetLength(0); j++)
                     {
-                        calFreqAdj = Convert.ToDecimal(WLMFileArray[var]) + valueToAdd - ramanShift;
-                        WLMFileArray[var] = Convert.ToString(calFreqAdj);
-                    }//end for loop for adding and subtracting values
-                }
-                //this is for User input T and P values to calculate the RamanShift
-                else
-                {
-                    decimal RS = RamanShift();
-                    for (int var = 1; var < WLMFileArray.Length; var += 5)
-                    {
-                        calFreqAdj = Convert.ToDecimal(WLMFileArray[var]) + valueToAdd - RS;
-                        WLMFileArray[var] = Convert.ToString(calFreqAdj);
-                    }//end for loop for adding and subtracting values
-                }
-
-                //creates a list of segments and then initializes them all
-                var SegList = new List<Segment>();
-                bool temp = true;
-                int whichSeg = 0;
-                while (temp)
-                {
-                    SegList.Add(new Segment(valueToAdd, ramanShift, numberOfShots, checkBox1.Checked, cutWLMpoints.Checked, (int)numberOfColumns.Value));
-                    temp = SegList.Last().patchSegs(CRDSFileArray, WLMFileArray, whichSeg);
-                    whichSeg++;
-                }
-                bubbleSort(ref SegList);
-
-                var allData = new List<Decimal[]>();
-
-                //conditional statement to patch segments or not
-                if (checkBox1.Checked)
-                {
-                    for (int i = 0; i < SegList.Count; i++)
-                    {
-                        for (int j = 0; j < SegList[i].patchSeg.GetLength(0); j++)
-                        {
-                            if (allData.Count != 0 && SegList[i].patchSeg[j, 0] < allData[allData.Count - 1][0])
-                            {
-                                continue;
-                            }
-                            decimal[] tempMat = new decimal[1 + (int)numberOfColumns.Value + 1];
-                            for (int k = 0; k < tempMat.Length; k++)
-                            {
-                                tempMat[k] = SegList[i].patchSeg[j, k];
-                            }
-                            allData.Add(tempMat);
-                        }
-                    }
-                }//end checkBox if condition
-                else
-                {
-                    for (int i = 0; i < SegList.Count; i++)
-                    {
-                        for (int j = 0; j < SegList[i].patchSeg.GetLength(0); j++)
-                        {
-                            decimal[] tempMat = new decimal[1 + (int)numberOfColumns.Value + 1];
-                            for (int k = 0; k < tempMat.Length; k++)
-                            {
-                                tempMat[k] = SegList[i].patchSeg[j, k];
-                            }
-                            allData.Add(tempMat);
-                        }
-                    }
-                }
-
-
-
-                for (int rowIndex = 0; rowIndex < allData.Count; rowIndex++)
-                {
-                    if (cutWLMpoints.Checked)
-                    {
-                        if (allData[rowIndex][0] < 0M)
+                        if (allData.Count != 0 && SegList[i].patchSeg[j, 0] < allData[allData.Count - 1][0])
                         {
                             continue;
                         }
-                    }
-                    StringBuilder line = new StringBuilder();
-                    if (XYOnly.Checked)
-                    {
-                        line.Append(Convert.ToString(allData[rowIndex][0])).Append("\t");
-                        line.Append(Convert.ToString(allData[rowIndex][numberOfColumnsCRDS + 1]));
-                    }
-                    else
-                    {
-                        for (int colIndex = 0; colIndex < 1 + numberOfColumnsCRDS + 1; colIndex++)
+                        decimal[] tempMat = new decimal[1 + (int)numberOfColumns.Value + 1];
+                        for (int k = 0; k < tempMat.Length; k++)
                         {
-                            line.Append(Convert.ToString(allData[rowIndex][colIndex])).Append("\t");
-                        }//inner for
+                            tempMat[k] = SegList[i].patchSeg[j, k];
+                        }
+                        allData.Add(tempMat);
                     }
-                    linesToWrite.Add(line.ToString());
-                }//end line writer for
-
-
-                if (String.IsNullOrEmpty(filePath))
+                }
+            }//end checkBox if condition
+            else
+            {
+                for (int i = 0; i < SegList.Count; i++)
                 {
-                    savePatched.InitialDirectory = "V:\\tcodd\\HRCRDS Data\\NO3";//V:\\tcodd\\HRCRDS Data
-                }//end if
+                    for (int j = 0; j < SegList[i].patchSeg.GetLength(0); j++)
+                    {
+                        decimal[] tempMat = new decimal[1 + (int)numberOfColumns.Value + 1];
+                        for (int k = 0; k < tempMat.Length; k++)
+                        {
+                            tempMat[k] = SegList[i].patchSeg[j, k];
+                        }
+                        allData.Add(tempMat);
+                    }
+                }
+            }
+
+
+
+            for (int rowIndex = 0; rowIndex < allData.Count; rowIndex++)
+            {
+                if (cutWLMpoints.Checked)
+                {
+                    if (allData[rowIndex][0] < 0M)
+                    {
+                        continue;
+                    }
+                }
+                StringBuilder line = new StringBuilder();
+                if (XYOnly.Checked)
+                {
+                    line.Append(Convert.ToString(allData[rowIndex][0])).Append("\t");
+                    line.Append(Convert.ToString(allData[rowIndex][numberOfColumnsCRDS + 1]));
+                }
                 else
                 {
-                    savePatched.InitialDirectory = filePath;
-                }//end else
-                savePatched.OverwritePrompt = true;
-                savePatched.CreatePrompt = false;
-                savePatched.FileName = "";
-                savePatched.Filter = "Text|*.txt|All Files|*.*";
-                savePatched.ShowDialog();
-                filePath = savePatched.FileName;
+                    for (int colIndex = 0; colIndex < 1 + numberOfColumnsCRDS + 1; colIndex++)
+                    {
+                        line.Append(Convert.ToString(allData[rowIndex][colIndex])).Append("\t");
+                    }//inner for
+                }
+                linesToWrite.Add(line.ToString());
+            }//end line writer for
 
-                File.WriteAllLines(filePath, linesToWrite, Encoding.ASCII);
 
-                Segment work = new Segment(valueToAdd, ramanShift, numberOfShots, checkBox1.Checked, cutWLMpoints.Checked, (int)numberOfColumns.Value);
-                work.patchSegs(CRDSFileArray, WLMFileArray, 0);
-
-                //The following resets all of the variables after each save
-                CRDSFileArray = Empty;
-                WLMFileArray = Empty;
-                linesToWrite.Clear();
-                pfreq = 0M;
-                //Take care of static variables for Segment objects
-                Segment.nnprevW = 5;
-                Segment.nprev = 0;
-                Segment.wLF = 8;
-                Segment.pfreq = 0M;
-                Segment.seg = -1;
+            if (String.IsNullOrEmpty(filePath))
+            {
+                savePatched.InitialDirectory = "V:\\tcodd\\HRCRDS Data\\NO3";//V:\\tcodd\\HRCRDS Data
+            }//end if
+            else
+            {
+                savePatched.InitialDirectory = filePath;
             }//end else
+            savePatched.OverwritePrompt = true;
+            savePatched.CreatePrompt = false;
+            savePatched.FileName = "";
+            savePatched.Filter = "Text|*.txt|All Files|*.*";
+            savePatched.ShowDialog();
+            filePath = savePatched.FileName;
+
+            File.WriteAllLines(filePath, linesToWrite, Encoding.ASCII);
+
+            Segment work = new Segment(valueToAdd, ramanShift, numberOfShots, checkBox1.Checked, cutWLMpoints.Checked, (int)numberOfColumns.Value);
+            work.patchSegs(CRDSFileArray, WLMFileArray, 0);
+
+            //The following resets all of the variables after each save
+            CRDSFileArray = Empty;
+            WLMFileArray = Empty;
+            linesToWrite.Clear();
+            pfreq = 0M;
+            //Take care of static variables for Segment objects
+            Segment.nnprevW = 5;
+            Segment.nprev = 0;
+            Segment.wLF = 8;
+            Segment.pfreq = 0M;
+            Segment.seg = -1;
         }//end patchButtonClick
 
         private static void bubbleSort(ref List<Segment> user)
@@ -299,24 +296,17 @@ namespace WindowsFormsApplication1
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
+            bool temp = false;
             if (CalcRamanShift.Checked)
             {
-                TempLabel.Enabled = true;
-                PressureLabel.Enabled = true;
-                TemperatureUpDown.Enabled = true;
-                PressureUpDown.Enabled = true;
-                RegRamanlabel.Enabled = false;
-                ramanShiftUpDown.Enabled = false;
+                temp = true;
             }
-            else
-            {
-                TempLabel.Enabled = false;
-                PressureLabel.Enabled = false;
-                TemperatureUpDown.Enabled = false;
-                PressureUpDown.Enabled = false;
-                RegRamanlabel.Enabled = true;
-                ramanShiftUpDown.Enabled = true;
-            }
+            TempLabel.Enabled = temp;
+            PressureLabel.Enabled = temp;
+            TemperatureUpDown.Enabled = temp;
+            PressureUpDown.Enabled = temp;
+            RegRamanlabel.Enabled = !temp;
+            ramanShiftUpDown.Enabled = !temp;
         }//end method bublleSort
 
         /// <summary>
